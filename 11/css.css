@@ -1,0 +1,72 @@
+body{
+	padding: 0;
+	margin:0;
+}
+.aa{
+    width:1200px;
+    min-height: 1000px;
+    margin:auto;
+}
+.aa header,footer{
+	height:80px;
+	border:1px solid #960;
+	background-color: #330;
+}
+.aa section{
+	margin: 10px 0px;
+	min-height:400px;
+}
+.aa aside{
+	width: 400px;
+	min-height: 500px;
+	border: 1px solid #7E5535;
+	float: left;
+	background-color: #098;	
+}
+
+.cc::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.aa main{
+    min-height: 500px;
+    border: 1px solid #0f0;
+    background-color: #960;
+    margin-left: 420px;
+    width: 780px;
+    background-image: url(http://www.sdcp.cn/i/sdfc/cpzx/201604/W020160428410030919486.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+header h1{
+	text-align: center;
+	font-size: 24px;
+	color:red;
+}
+section aside div{
+	width:80px;
+	height:30px;
+	border: 1px solid #233;
+	background-color: #fff;
+	margin:20px;
+	padding:10px;
+	text-align: center;
+}
+section a{
+	text-decoration: none;
+}
+section aside div:hover{
+	width:80px;
+	height:30px;
+	border: 1px solid #233;
+	background-color: #000;
+	margin:20px;
+	padding:10px;
+	text-align: center;
+}
+footer p a:hover{
+	text-decoration: none;
+}
+
+
