@@ -1,0 +1,78 @@
+.clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+.aa *{
+	box-sizing: border-box;
+}
+.aa{
+	max-width: 1200px;
+	margin: auto;
+}
+.aa figure{
+	width: 30%;
+	margin: calc(10%/6);
+	float:left;
+	overflow: hidden;
+	position: relative;
+	border: 10px solid #fff;
+	box-shadow: 1px 1px 6px 0px rgba(0,0,0,.6);
+	transform: scale(1) rotate(0.1deg);
+}
+.aa figure:hover img{
+	transform: scale(1.2) rotate(6deg);
+}
+.aa figure img{
+	width: 100%;
+}
+.aa figure figcaption{
+	position: absolute;
+    border: 1px solid #fff;
+    width: 80%;
+    height: 30%;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-bottom: none;
+    z-index: 3;
+}
+.aa figure figcaption::before{
+	content: "";
+	position: absolute;
+	height: 1px;
+	width: 50%;
+	bottom: 0;
+	right: 0;
+	background-color: #fff;
+	transition: all .5s; 
+}
+.aa figure figcaption::after{
+	content: "";
+	position: absolute;
+	height: 1px;
+	width: 50%;
+	bottom: 0;
+	left: 0;
+	background-color: #fff;
+	transition: all .5s; 
+}
+.aa figure:hover figcaption::before{
+	width: 20%;
+}
+.aa figure:hover figcaption::after{
+	width: 20%;
+}
+.aa figure figcaption h3,.aa figure figcaption p{
+	text-align: center;
+	color: #fff;
+}
+.aa figure figcaption p{
+	opacity: 0;
+	transition: all .5s; 
+}
+.aa figure:hover figcaption p{
+	opacity: 1;
+}
