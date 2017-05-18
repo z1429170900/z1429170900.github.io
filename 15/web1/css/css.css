@@ -1,0 +1,52 @@
+clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+body{
+	background-image: url(../img/bg.jpg);
+}
+ul{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+
+.aa{
+	max-width: 1200px;
+	margin: auto;
+}
+.aa a img{
+	width: 150px;
+	height: auto;
+}
+header{
+	margin: 30px 0;
+}
+.aa li{
+	float: left;
+	margin: 20px;
+	transition: all.5s;
+	width: 60px;
+	height: 40px;
+	text-align: center;
+}
+.aa a{
+	line-height: 40px;
+}
+.aa header{
+	position: relative;
+}
+.bb{
+	width: 600px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.bb li:hover{
+	border: 1px solid #000;
+	border-radius: 2px;
+	color: #fff;
+}
+
