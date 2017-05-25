@@ -1,0 +1,143 @@
+.clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+body{
+	background: url(../img/bg.jpg) no-repeat fixed top center;
+}
+ul{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+	color: #000000;
+}
+
+.aa{
+	max-width: 1000px;
+	margin: auto;
+}
+.aa a img{
+	width: 150px;
+	height: auto;
+}
+header{
+	margin: 30px 0;
+}
+.aa li{
+	float: left;
+	margin: 20px;
+	transition: all.5s;
+	width: 60px;
+	height: 40px;
+	text-align: center;
+}
+.aa a{
+	line-height: 40px;
+}
+.aa header{
+	position: relative;
+}
+.bb{
+	width: 600px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.bb li:hover{
+	border: 1px solid #fff;
+	border-radius: 2px;
+	color: #fff;
+}
+.cc ul li{
+	text-align: center;
+	line-height: 48px;
+	border: 1px solid #000;
+	width: 160px;
+	height: 48px;
+	color: #fff;
+	border-radius: 10px;
+}
+.cc ul li:hover{
+	background-color: rgba(100,200,100,.5)
+}
+.ff figure{
+	float: left;
+	position: relative;
+	opacity: 0.5;
+}
+.ff figcaption{
+	position: absolute;
+	text-align: center;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+	z-index: 2;
+}
+.ff figure:hover{
+	opacity: 1;
+}
+.biao dt{
+	display: inline-block;
+	width: 60px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	background-color: #fff;
+	
+}
+.biao dd{
+	display: inline-block;
+	padding: 0 30px;
+	height: 30px;
+	color: #fff;
+	background-color: #000;
+	text-align: center;
+	line-height: 30px;
+	margin-right: 40px;
+	margin-left: 0px;
+}
+.biao input[type="text"]{
+	width: 30%;
+	padding: 10px 16px;
+	border: none;
+	border-radius: 5px;
+}
+.biao select{
+	width: 30%;
+	padding: 10px 16px;
+	border: none;
+	border-radius: 5px;
+}
+.biao textarea{
+	width: 48%;
+	padding: 10px 16px;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+.biao input[type="button"]{
+	width: 41%;
+	border-radius: 5px;
+	height: 48px;
+	background-color: #00ffcc;
+	position: relative;
+	top: -17;
+}
+footer{
+	position: relative;
+}
+footer a{
+	display: inline-block;
+	width: 100px;
+	height: 40px;
+	color: #fff;
+	border: 1px solid #FFFFFF;
+	text-align: center;
+	line-height: 40px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
