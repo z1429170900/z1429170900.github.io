@@ -1,0 +1,96 @@
+.clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	padding: 0;
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+	color: #fff;
+}
+
+.t-top{
+	max-width: 1200px;
+	margin: auto;
+}
+.t-top span{
+	font-family: 'Dancing Script', cursive;
+	color: #fff;
+	font-size: 50px;
+	
+}
+.t-logo{
+	float: left;
+}
+.t-toplist{
+	float: right;
+}
+header ul li{
+    float: left;
+	margin: 20px 20px;
+	transition: color.5s;
+}
+header ul li:hover a{
+	color: #000;
+}
+.banner{
+	background: url(../img/banner.jpg) no-repeat center top;
+	background-size: cover;
+	height: 760px;
+}
+.banner .passage{
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.1);
+}
+.banner .passage mark{
+	background: rgba(255,255,255,0.5);
+}
+.banner .passage em{
+	font-style: inherit;
+}
+.banner .passage h1{
+	font-size: 32px;
+	margin: 10px 0;
+	color: #fff;
+}
+.banner .passage h1 em{
+	color: #000fff;
+}
+.banner .passage p{
+	padding-bottom: 10px;
+	color: #fff;
+}  
+.about .question{
+	text-align: center;
+	font-family: "微软雅黑";
+}
+.about .a-img{
+	width: 45%;
+	float: left;
+	margin-top: 40px;
+}
+.about img{
+	width: 100%;
+}
+.about .introduce{
+	margin-top: 40px;
+	width: 45%;
+	float: right;
+	font-family: "微软雅黑";
+	line-height: 2.5;
+	
+}
+.about .introduce p{
+	padding-bottom: 20px;
+}
