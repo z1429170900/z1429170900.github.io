@@ -1,0 +1,194 @@
+.clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	padding: 0;
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+	color: #fff;
+}
+h1{
+	text-align: center;
+}
+body{
+	font-family: "微软雅黑";
+}
+.t-top{
+	max-width: 1200px;
+	margin: auto;
+}
+.t-top span{
+	font-family: 'Dancing Script', cursive;
+	color: #fff;
+	font-size: 50px;
+	
+}
+.t-logo{
+	float: left;
+}
+.t-toplist{
+	float: right;
+}
+header ul li{
+    float: left;
+	margin: 20px 20px;
+	transition: color.5s;
+}
+header ul li:hover a{
+	color: #000;
+}
+.banner{
+	background: url(../img/banner.jpg) no-repeat center top;
+	background-size: cover;
+	height: 760px;
+}
+.banner .passage{
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.1);
+}
+.banner .passage mark{
+	background: rgba(255,255,255,0.5);
+}
+.banner .passage em{
+	font-style: inherit;
+}
+.banner .passage h1{
+	font-size: 32px;
+	margin: 10px 0;
+	color: #fff;
+}
+.banner .passage h1 em{
+	color: #000fff;
+}
+.banner .passage p{
+	padding-bottom: 10px;
+	color: #fff;
+}  
+.about .question{
+	text-align: center;
+	font-family: "微软雅黑";
+}
+.about .a-img{
+	width: 45%;
+	float: left;
+	margin-top: 40px;
+}
+.about img{
+	width: 100%;
+}
+.about .introduce{
+	margin-top: 40px;
+	width: 45%;
+	float: right;
+	font-family: "微软雅黑";
+	line-height: 2.5;
+	
+}
+.about .introduce p{
+	padding-bottom: 20px;
+}
+.service{
+	background: url(../img/banner2.jpg) no-repeat center top;
+}
+.service .we{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.service h3{
+	margin-top:30px;
+	margin-bottom: 30px;
+}
+.service ul li{
+	margin: 30px 10px 10px 10px;
+	width: 48%;
+	float: left;
+}
+.service ul li:nth-child(1){
+	text-align: right;
+}
+.service ul li:nth-child(3){
+	text-align: right;
+}
+.service ul li:nth-child(5){
+	text-align: right;
+}
+
+.service li i{
+	float: right;
+	padding: 30px 0px 12px 20px;
+	transition: transform .5s,color .5s;
+}
+.service li:nth-child(2n) i{
+	float: left;
+}
+.service li:hover i{
+	transform: scale(1.2);
+	color: #339BEB;
+}
+.exp .exp-content{
+    max-width: 1200px;
+    margin: auto;
+}
+.exp figure{
+	float: left;
+	overflow: hidden;
+	width: 24%;
+	margin: 10px calc(4% / 3) 10px 0px;
+	position: relative;
+	cursor: pointer;
+}
+.exp figure:nth-child(4){
+	margin-right: 0;
+}
+.exp figure img{
+	width: 100%;
+	height: auto;
+}
+.aiqing{
+	width: 45%;
+	float: left;
+	margin-right: 5%;
+}
+.time{
+    background: url(../img/android-1869510_1920.jpg) no-repeat center top;
+    background-size: cover;
+    color: #fff;
+}
+.text{
+	width: 50%;
+	float: right;
+}
+.text input{
+	width: 500px;
+	padding: 10px 16px;
+	margin: 10px 0;
+	border: none;
+	border-radius:5px;
+	outline: none;
+	background-color: rgba(255,255,255,.6);
+}
+.text textarea{
+		width: 500px;
+	padding: 10px 16px;
+	margin: 10px 0;
+	border: none;
+	border-radius:5px;
+	outline: none;
+	background-color: rgba(255,255,255,.6);
+}
+.aiqing ul li{
+	padding: 10px 10px;
+	margin: 10px;
+}
