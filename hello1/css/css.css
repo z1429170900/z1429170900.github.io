@@ -15,12 +15,16 @@ a{
 	text-decoration: none;
 	color: #fff;
 }
+<<<<<<< HEAD
 h1{
 	text-align: center;
 }
 body{
 	font-family: "微软雅黑";
 }
+=======
+
+>>>>>>> origin/master
 .t-top{
 	max-width: 1200px;
 	margin: auto;
@@ -99,6 +103,7 @@ header ul li:hover a{
 .about .introduce p{
 	padding-bottom: 20px;
 }
+<<<<<<< HEAD
 .service{
 	background: url(../img/banner2.jpg) no-repeat center top;
 }
@@ -192,3 +197,5 @@ header ul li:hover a{
 	padding: 10px 10px;
 	margin: 10px;
 }
+=======
+>>>>>>> origin/master
