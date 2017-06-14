@@ -1,0 +1,44 @@
+.clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+header{
+	max-width: 1000px;
+	margin: auto;
+}
+.all .logo{
+	float: left;
+}
+.all .menu{
+	float: right;
+	position: relative;
+	margin-bottom: 10px;
+}
+.all .menu ul li{
+	float: left;
+	width: 100px;
+	padding: 0 10px;
+	line-height: 63px;
+	text-align: center;
+	border-right: 1px solid #EEE;
+}
+.all .menu ul li:first-child{
+	border-left: 1px solid #EEE;
+}
+.banner{
+	height: 600px;
+	width: 100%;
+	background: url(../img/banner2.jpg) no-repeat;
+	background-size: 100%;
+}
