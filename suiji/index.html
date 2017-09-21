@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Document </title>
+	<style type="text/css">
+		#banner{
+			width: 800px;
+			height: 500px;
+			margin: 0 auto;	
+		}
+	</style>
+</head>
+<body id="bd">
+	<div id="banner"></div>
+	<script type="text/javascript">
+		//给#banner对象一个随机的背景图像（background-image: url(img/1.jpg);）
+	
+		var sStr="01.jpg|02.jpg|03.jpg|04.jpg";
+		var aStr=sStr.split("|");
+		//alert(aStr[2]);
+		var oBanner=document.getElementById('banner');
+		var num=parseInt(Math.random()*4);  // [0,1)
+		oBanner.style.backgroundImage="url(img/"+aStr[num]+")";
+		
+	</script>
+</body>
+</html>
