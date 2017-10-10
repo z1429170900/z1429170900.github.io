@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: rgba(2,2,2,.5);
+			}
+			#Time{
+				font-size: 120px;
+				text-align: center;
+				color: white;
+				margin-top: 200px;
+			}
+		</style>
+	</head>
+	<body onclick="startTime()">
+		<div id="Time">
+			
+		</div>
+		<script type="text/javascript">
+            var now;
+            var time=document.getElementById("Time");
+            function startTime(){
+            	now=new Date();
+            	var h=now.getHours();
+            	var m=now.getMinutes();
+            	var s=now.getSeconds();
+            	document.getElementById("Time").innerHTML = Check(h)+":"+Check(m)+":"+Check(s);
+            }
+            function Check(num){
+            	if(num<10){
+            		num="0"+num;
+            	}
+            	return num;
+            }
+            setInterval("startTime()",500);
+		</script>
+	</body>
+</html>
