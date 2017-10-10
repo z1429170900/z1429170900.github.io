@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>抽奖系统</title>
+		<style type="text/css">
+			
+			
+			 h1 {
+				font-family: "微软雅黑";
+				text-align: center;
+			}
+			p{
+				text-align: center;
+			}
+		  .all{
+				background: #fff;
+				width: 800px;
+				height: 500px;
+				border-radius: 15px;
+				margin: 0 auto;
+			}
+						
+		#resultText{
+				width: auto;
+				height: 30px;
+				line-height: 30px;
+				border: 1px solid black;
+			}
+
+
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="all">
+			<h1>幸运大抽奖</h1>
+			<p><input type="text" id="numInput" placeholder="请确定中奖人数"/></p>
+			<p><input type="button" id="start" value="开始" onclick="go();" /></p>
+			<p><input type="button" id="end" value="停止" onclick="stop();" /></p>
+			<p id="resultText"></p>
+		</div>
+		<script type="text/javascript">
+			var numInput = document.getElementById('numInput');
+			var start = document.getElementById('start');
+			var resultText = document.getElementById('resultText');
+
+			var str = "姚宇飞#朱学成#岑灏#朱晨煜#宋治民#潘雪#钱伟杰#姜凯#陆文涛#朱雨婷#吕涵之#沈丹青#钱都#杜任杰#叶信哲#蒋轶聪#张虓敏#陈黎铭#何桂清#余银超#劳锦锞#周渠成#徐炜昊#盛绍斌#王海波#郑涛#郑可琪#潘云锋#陈汇#蔡浩然#冯盛鹏#张南#黄小翠#曾思思#李雄俊#苏彬彬#黄鑫鑫#姜智孟#白炳钿#胡利明#张益桐#许桃美";
+			var arrStu = str.split("#")
+			var num;
+			var arrResult;
+			var time;
+
+			function luck() {
+				var num = Number(numInput.value);
+				var arrResult = new Array();
+				arrStu = str.split("#");
+				
+             
+				if(num == 0 || isNaN(num)) {
+					num = 3;
+				}
+
+				for(var i = 0; i < num; i++) {
+					var index = parseInt(Math.random() * arrStu.length);
+					arrResult.push(arrStu[index]);
+					arrStu.splice(index, 1);
+				}
+				resultText.innerHTML = arrResult.join(" ");
+			}
+         
+			function go() {
+				time = setInterval("luck()", 200);
+				
+                start.disabled=true;
+
+			}
+           
+			function stop() {
+				window.clearInterval(time);
+				
+				start.disabled=false;
+
+			}
