@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	<style>
+		body{
+				background-repeat:no-repeat;
+				background-size: 100% 100%;
+				background-attachment: fixed;
+	}
+		div{
+				margin-top: 250px;
+				text-align: center;
+		}
+		#textstar{
+				width: auto;
+				height: 20px;
+		}
+		#textend{
+				width: 18%;
+				height: 20px;
+				line-height: 30px;
+				border: 1px solid black;
+                border-radius: 8px;
+                margin-top: 50px;
+		}
+	</style>
+	</head>
+	<body>
+		<div>
+			<h1>大吉大利</h1>
+			<input type="text" name="" id="textstar" value="" />
+			<input type="button" name="" id="start" value="开始" onclick="stars()" />
+			<input type="button" name="" id="btnend" value="结束" onclick="stop()"/><br />
+			<input type="text" name="" id="textend" value="" />
+		</div>
+		<script type="text/javascript">
+			var textstar=document.getElementById("textstar");
+			var start=document.getElementById("star");
+			var btnend=document.getElementById("btnend");
+			var textend=document.getElementById("textend");
+			var a;
+			var strs="丁佳|王佳妮|王雨婕|王相宜|刘嘉懿|江奕静|严泽茵|张嘉益|杨乙文|周奕|周娱|袁丽雅|郭睿涵|黄闻佳|嵇唯懿|熊悦|于哲仁|马嘉瑜|王嘉增|曲韵杰|朱一盈|朱奕霖|朱恺骅|朱哲原|宋元朴|李凡成|李明昊|杨瑀鼎|沈容轩|陆世泽|陆重言|陈远梵|贾喆豪|顾逸鸣|曹钟皓|阎嘉禾|黄一诚|傅逸鸣|魏仡豪";
+			
+			var arrResult;
+			var num;
+			function luck () {
+				str=strs.split("|");
+				var num=Number(textstar.value);
+				var arrResult=new Array();
+				var str=strs.split("|");
+				if(num==0||isNaN(num)){
+					num=3;
+				}
+				for(var i=0;i<num;i++){
+					var index=parseInt(Math.random()*str.length);
+					arrResult.push(str[index]);
+					arrResult.splice(index,1);
+				}
+				textend.value=arrResult.join(" ");
+			}
+			function stars () {
+				a=setInterval("luck()",100);
+
+			}
+			function stop () {
+				window.clearInterval(a);
+
+			}
+		</script>
+	</body>
+</html>
