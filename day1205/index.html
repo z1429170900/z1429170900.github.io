@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>menu</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<style type="text/css">
+				*{
+					margin: 0;
+					padding: 0;
+				}
+				.menubar{
+					max-width: 1600px;
+					height: 100px;
+					background: coral;
+					position: relative;
+				}
+				.menubar #but{
+					font-size: 24px;
+					line-height: 100px;
+					margin-left: 30px;
+				}
+				.menubar h2{
+					left: 80px;
+					top: 33px;
+					position: absolute;
+				}
+				.menu{
+					width: 200px;
+					height: 400px;
+					background: chocolate;
+					display: none;
+				}
+				.menu ul li{
+					height: 100px;
+					text-align: center;
+					line-height: 25px;
+				}
+		</style>
+	</head>
+	<body>
+		<div class="menubar">
+				<i class="fa fa-bars button" id="but"></i>
+				<h2>Hello World!</h2>
+		</div>
+		<script type="text/javascript">
+			var oMenu = document.getElementsByClassName('.menubar');
+			var oBut = document.getElementById('but');
+			var a=true;
+			var oMenu = document.createElement('div');
+			oMenu.setAttribute("class","menu");
+			document.body.appendChild(oMenu);
+			var oUl = document.createElement('ul');
+			oMenu.appendChild(oUl);
+			for(var i = 0 ; i < 4 ; i++){
+				var oLi = document.createElement('li');
+				oUl.appendChild(oLi);
+				oLi.innerText = 'line >';
+			}
+			
+			oBut.onclick = function(){
+				if(a){
+					oBut.style.transform = 'rotate(90deg)';
+					oMenu.style.display = 'block';
+					a=false;
+				}
+				else{
+					oBut.style.transform = 'rotate(0deg)';
+					oMenu.style.display = 'none';
+					a=true;
+				}
+			}
+		</script>
+	</body>
+</html>
+	
