@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			input{
+				width: 60px;
+				height: 60px;
+			}
+			#toblue{
+				background-color: green;
+			}
+			#tored{
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body id="">
+		<input type="button" id="green" value="样式1" style=";" />
+		<input type="button" id="red" value="样式2" style=";" />
+		
+		<script type="text/javascript">
+			var btnBlue=document.getElementById('green');
+			var btnRed=document.getElementById('red');
+			
+			btnBlue.addEventListener('click',setgreen);
+			btnRed.addEventListener('click',setRed);
+		    function setgreen(){
+		    	document.body.id="toblue";
+		    	var id=document.body.id;
+		    	localStblue.setItem('getId',id);
+		    }
+		    function setRed(){
+		    	document.body.id="tored";
+		    	var id=document.body.id;
+		    	localStblue.setItem('getId',id);
+		    }
+		    var curId=localStwhite.getItem('getId');
+		    if(curId !=null){
+		    	document.body.id=curId;
+		    }
+		</script>
+	</body>
+</html>
