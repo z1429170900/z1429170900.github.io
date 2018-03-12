@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>选项卡</title>
+		<style type="text/css">
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: block;
+			}
+			
+			.tabs {}
+			
+			.tabs .tabItems {}
+			
+			.tabs .tabItems .item {
+				padding: 10px 30px;
+				float: left;
+				border-radius: 2px 2px 0px 0px;
+				margin: 0px 2px;
+				cursor: pointer;
+			}
+			
+			.tabContents .content {
+				width: 600px;
+				min-height: 300px;
+			}
+			
+			.tabs div div:nth-child(1) {
+				background-color: #fdd;
+			}
+			
+			.tabs div div:nth-child(2) {
+				background-color: #dfd;
+			}
+			
+			.tabs div div:nth-child(3) {
+				background-color: #ddf;
+			}
+			<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		</style>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<div class="tabs">
+			<div class="tabItems clearfix">
+				<div class="item" v-for='(item,index) in tabs' @click="clickIt(index)">{{item}}</div>
+			</div>
+			<div class="tabContents">
+				<div class="news" v-for='(item,index) in tabContents' v-show="cshow==index">{{item}}</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var tab=new Vue({
+				el:'.tabs',
+				data:{
+					tabs:['新闻','游戏','官网'],
+					tabContents:['新闻内容','游戏内容','官网内容'],
+					cshow:0,
+				},
+				methods:{
+					clickIt:function(index){
+						this.cshow=index;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
