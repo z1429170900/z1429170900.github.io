@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>个人简历</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				background-color: #081731;
+				font-family: "微软雅黑";
+				color: white;
+			}
+			ul{
+				list-style: none;
+			}
+			.border{
+				width: 68%;
+				margin: 10px auto;
+				max-width: 68%;
+				border: 8px solid white;
+				padding: 30px;
+			}
+			.border .top{
+				display: flex;
+				justify-content: space-between;
+			}
+			.border .top .top_left{
+				min-width: 352px;
+			}
+			.border .top .top_left p,a{
+				margin: 15px 0;
+				text-decoration: none;
+			}
+			.border .top .top_left a{
+				color: #CB1B45;
+			}
+			.picture{
+				border-radius: 50%;
+				overflow: hidden;
+				margin-right: 15px;
+			}
+			.picture img{
+				width: 114px;
+				height: 114px;
+			}
+			/*内容左边*/
+			.center{
+				display: flex;
+				justify-content: space-between;
+				margin-top: 40px;
+			}
+			.center .left h4{
+				opacity: .7;
+			}
+			.center .left h2:after{
+				content: "";
+				display: inline-block;
+				width: 10px;
+				height: 6px;
+				background-color: #CB1B45;
+			}
+			.center .left p{
+				margin: 20px 0;
+			}
+			.center .left .skill ul{
+				display: flex;
+				flex-wrap: wrap;
+			}
+			.center .left .skill ul li{
+				width: 50px;
+				height: 50px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				border-radius: 50%;
+				background-color: #CB1B45;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="border">
+			<div class="top">
+				<div class="top_left">
+					<h1>郑涛</h1>
+					<p>I want xjx and qimingxing let go for youself ！</p>
+					<a href="#">作品集  GitHub FaceBook</a>
+				</div>
+				<div class="picture">
+					<img src="img/01.jpg"/>
+				</div>
+			</div>
+			<div class="center">
+				<div class="left">
+					<div class="education">
+						<h4>Education</h4>
+						<h2>教育程度</h2>
+						<p>浙江邮电职业技术学院（担任学院校长有点厉害）</p>
+					</div>
+					<div class="skill">
+						<h4>Skills</h4>
+						<h2>实务技能</h2>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+					<div class="program">
+						<h4>Programming Skills</h4>
+						<h2>编程技能</h2>
+						<ul>
+							<li>javascript</li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+				</div>
+				<div class="right">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
