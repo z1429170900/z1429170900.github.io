@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>个人简历</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				background-color: #081731;
+				font-family: "微软雅黑";
+				color: white;
+			}
+			li{
+				font-size: 14px;
+			}
+			ul{
+				list-style: none;
+			}
+			.border{
+				width: 68%;
+				margin: 10px auto;
+				max-width: 68%;
+				border: 8px solid white;
+				padding: 30px;
+			}
+			.border .top{
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+			}
+			/*.border .top .top_left{
+				min-width: 352px;
+			}*/
+			.border .top .top_left p,a{
+				margin: 15px 0;
+				text-decoration: none;
+			}
+			.border .top .top_left a{
+				color: #CB1B45;
+			}
+			.picture{
+				border-radius: 50%;
+				overflow: hidden;
+				margin-right: 15px;
+			}
+			.picture img{
+				width: 114px;
+				height: 114px;
+			}
+			/*内容左边*/
+			.center{
+				display: flex;
+				margin-top: 40px;
+			}
+			.center .left{
+				width: 40%;
+			}
+			.center .left h4{
+				opacity: .7;
+			}
+			.center .left h2:after{
+				content: "";
+				display: inline-block;
+				width: 10px;
+				height: 6px;
+				background-color: #CB1B45;
+			}
+			.center .left p{
+				margin: 20px 0;
+			}
+			.center .left .skill ul{
+				display: flex;
+				flex-wrap: wrap;
+				margin-top: 30px;
+				margin-bottom: 30px;
+			}
+			.center .left .skill ul li{
+				width: 33%;
+				box-sizing: border-box;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;	
+				text-align: center;
+			}
+			.center .left .skill ul li .circle{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-color: #CB1B45;
+			}
+			.program ul{
+				margin: 20px 0;
+			}
+			.program ul li{
+				display: flex;
+				justify-content: space-between;
+			}	
+			.program ul li .bar{
+				width: 30%;
+				height: 10px;
+				border: 2px solid #CB1B45;
+				border-radius: 5px;
+				background-color: #CB1B45;
+			}
+			.right{
+				margin-left: 80px;
+				
+			}	
+			.center .right h4{
+				opacity: .7;
+			}
+			.center .right h2:after{
+				content: "";
+				display: inline-block;
+				width: 10px;
+				height: 6px;
+				background-color: #CB1B45;
+			}	
+			.center .right .first{
+				display: flex;
+			}
+			.center .right .seconed{
+				margin-left: 20px;
+				margin-bottom: 20px;
+			}
+			.center .right .seconed li{
+				border-left: 4px solid white;
+				padding-left: 20px;
+			} 
+		</style>
+	</head>
+	<body>
+		<div class="border">
+			<div class="top">
+				<div class="top_left">
+					<h1>郑涛</h1>
+					<p>I want xjx and qimingxing let go for youself ！</p>
+					<a href="#">作品集  GitHub FaceBook</a>
+				</div>
+				<div class="picture">
+					<img src="img/01.jpg"/>
+				</div>
+			</div>
+			<div class="center">
+				<div class="left">
+					<div class="education">
+						<h4>Education</h4>
+						<h2>教育程度</h2>
+						<p>浙江邮电职业技术学院（担任学院校长有点厉害）</p>
+					</div>
+					<div class="skill">
+						<h4>Skills</h4>
+						<h2>实务技能</h2>
+						<ul>
+							<li><div class="circle"></div>前端刻板（html/css）</li>
+							<li><div class="circle"></div>前端开发（javascript）</li>
+							<li><div class="circle"></div>后端开发（Ruby on Rails）</li>
+							<li><div class="circle"></div>懒人包制作</li>
+							<li><div class="circle"></div>视觉设计</li>
+							<li><div class="circle"></div>文案编写</li>
+						</ul>
+					</div>
+					<div class="program">
+						<h4>Programming Skills</h4>
+						<h2>编程技能</h2>
+						<ul>
+							<li>javascriptd <div class="bar"></div></li>
+							<li>Ruby on Rails <div class="bar"></div></li>
+							<li>Pythoy <div class="bar"></div></li>
+							<li>Html/Css <div class="bar"></div></li>
+							<li>Pug/Sass <div class="bar"></div></li>
+						</ul>
+					</div>
+				</div>
+				<div class="right">
+					<div class="Experience">
+						<h4>Experience</h4>
+						<h2>實習/工作經歷</h2>
+						<ul class="zero" style="margin-top: 20px;">
+							<li>
+								<ul class="first">
+									<li>2016</li>
+									<li>
+										<ul class="seconed">
+											<li>浙江邮电职业技术学院应届生</li>
+											<li>擔任文案撰寫、推廣組織理念。</li>
+											<li>網拍品牌代理版主</li>
+											<li>負責出貨、銷售、行銷、品牌社群經營等業務。</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							
+							<li>
+								<ul class="first">
+									<li>2017</li>
+									<li>
+										<ul class="seconed">
+											<li>暑假进入服务行业</li>
+											<li>負責打扫、站岗、行銷等。</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="first">
+									<li>2018</li>
+									<li>
+										<ul class="seconed">
+											<li>正式进入互联网公司</li>
+											<li>負責前端开发与交互</li>
+											<li>2018小目标</li>
+											<li>认真上劲</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="first">
+									<li>2019</li>
+									<li>
+										<ul class="seconed">
+											<li>创办公司</li>
+											<li>負責app制作与信息管理</li>
+											<li>2019小目标</li>
+											<li>月入百万，人生小巅峰</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="contexts">
+						<h4>Contests</h4>
+						<h2>參賽/參展經歷</h2>
+						<ul style="margin-top: 20px;">
+							<li>北醫第一屆簡報大賽決賽</li>
+							<li>北醫「愛之傳」明信片創作比賽優選</li>
+							<li>校外參展「自學者的成績單」</li>
+							<li>北醫第二屆藝術季「理想與現實」參展作品</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
