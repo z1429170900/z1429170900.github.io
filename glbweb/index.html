@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>app</title>
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div class="header">
+				<div class="time">{{ nowDate }}</div>
+				<div class="day" @click="todayFunc()">今天</div>
+			</div>
+			<div class="content">
+				<!--日历-->
+				<div class="calendar">
+					<div class="calendar_week">
+						<ul>
+							<li>日</li>
+							<li>一</li>
+							<li>二</li>
+							<li>三</li>
+							<li>四</li>
+							<li>五</li>
+							<li>六</li>
+						</ul>
+					</div>
+					<div class="days_box">
+						<div class="calendar_day" id="calendar" :style="{left: cLeft}" @touchstart="calendarTouchStart($event)" @touchmove="calendarTouchMove($event)" @touchend="calendarTouchEnd($event)">
+							<ul v-for="item in dateList">
+								<li v-for="jtem in item" @click="calendarActive(jtem.date)" ><div :class="{calendar_active : jtem.date == calendar_active, today_active: (disNowDate === jtem.date)}">
+									{{ jtem.number }}
+								</div></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!--menu-->
+				<div class="menu" :style="drawBack">
+					<div class="tool_box" @click="shrinkFunc()" >
+						<div class="tool" :style="shrink">
+						</div>
+					</div>
+					<div class="dateMenu">
+						<ul>
+							<li>已设置提醒</li>
+							<li>创建时间</li>
+							<li>最后发言时间</li>
+							<li class="active">
+								<div></div>
+							</li>
+						</ul>
+					</div>
+					<div class="list">
+						<ul>
+							<li>
+								<div class="title">227市场</div>
+								<div class="rightText">
+									<span>16</span>
+									<span>24</span>
+								</div>
+								<div class="remark">
+									定价依据和客户判定
+								</div>
+								<div class="role">
+									<span>我的角色：</span>
+									<span>经办人</span>
+								</div>
+								<div class="icon">
+									...
+								</div>
+							</li>
+							<li>
+								<div class="title">227市场</div>
+								<div class="rightText">
+									<span>16</span>
+									<span>24</span>
+								</div>
+								<div class="remark">
+									定价依据和客户判定
+								</div>
+								<div class="role">
+									<span>我的角色：</span>
+									<span>经办人</span>
+								</div>
+								<div class="icon">
+									...
+								</div>
+							</li>
+							<li>
+								<div class="title">227市场</div>
+								<div class="rightText">
+									<span>16</span>
+									<span>24</span>
+								</div>
+								<div class="remark">
+									定价依据和客户判定
+								</div>
+								<div class="role">
+									<span>我的角色：</span>
+									<span>经办人</span>
+								</div>
+								<div class="icon">
+									...
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<ul>
+					<li>
+						<i class="fa fa-tripadvisor"></i>
+						<span>工作</span>
+					</li>
+					<li>
+						<i class="fa fa-github-alt"></i>
+						<span>角色</span>
+					</li>
+					<li>
+						<i class="fa fa-eercast"></i>
+						<span>朋友圈</span>
+					</li>
+					<li>
+						<i class="fa fa-github-square"></i>
+						<span>同事</span>
+					</li>
+					<li>
+						<i class="fa fa-table"></i>
+						<span>日历</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+		  el: '#app',
+		  data: {
+		    dateList: [],
+		    ceshi: "hello",
+		    shrink: {},
+		    rotate: 0,
+		    drawBack: {},
+		    calendar_active: null,
+		    changedClientX: 0,	// 日历移动的起始位置
+		    CalendarLeft: 0,
+		    moveTime: null, // 日历移动按下的时间
+		    nowDate: new Date,
+		    cLeft: 0,
+		    disNowDate: new Date // 不变的今天
+		  },
+		  methods: {
+		  	getDate: function() {
+		  		var dateList = [];
+			    var allDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];//计算本月有多少天
+			    if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+			        allDay[1] = 29;//判断闰年
+			    }
+			    for(var i=0; i<12; i++) {
+			    	var oDate = new Date();
+			    	oDate.setMonth(i);
+			    	var year = oDate.getFullYear(); //年
+				    var month = oDate.getMonth(); //月
+				    var today = oDate.getDate(); //日
+				    var days = allDay[month]//当前月份有几天
+				    console.log(year, month);
+				    oDate.setDate(1);
+				    var week = oDate.getDay();
+				    dateList[i] = [];// 关键
+				    for(var j=0; j<week; j++) {
+				    	dateList[i].push({
+				    		number: "",
+				    		date: ""
+				    	});
+				    }
+				    for(var j=0; j<days; j++) {
+				    	dateList[i].push({
+				    		number: j + 1,
+				    		date: year + "-" + (month+1 >= 10 ? month+1 : "0" + (month + 1)) + "-" + (j+1 >= 10 ? j+1 : "0" + (j+1))
+				    	});
+				    }
+			    }
+			    this.dateList = dateList;
+			},
+			shrinkFunc: function() {
+				this.rotate += 180;
+				this.shrink = {
+					transform: "rotate(" + this.rotate + "deg)"
+				}
+				if(this.rotate / 180 % 2 == 0) {
+					this.drawBack = {
+						top: "186px"
+					}
+				} else {
+					this.drawBack = {
+						top: "52px"
+					}
+				}
+				
+			},
+			calendarActive: function(date) {
+				if(!date) {
+					return;
+				}
+				this.nowDate = date;
+				this.calendar_active = date;
+			},
+			calendarTouchStart: function(event) { // 按下
+				this.changedClientX = event.changedTouches[0].clientX;
+				let Calendar = document.getElementById('calendar');
+				this.CalendarLeft = Calendar.offsetLeft;
+				this.moveTime = new Date().getTime();
+			},
+			calendarTouchMove: function(event) { // 移动
+				let distance = event.changedTouches[0].clientX - this.changedClientX;
+				let Calendar = document.getElementById('calendar');
+				let CalendarLeft = this.CalendarLeft; // 移动时固定不变的的
+				let left = Calendar.offsetLeft; // 变化的
+				let width = window.innerWidth;
+//				console.log(left)
+				if(distance < 0) { // 距离小于0时表示向右拖拽
+					if(Math.abs(left) >= width*11) { // 当拖到最右边时无法移动
+						return false;
+					} else {
+						this.cLeft = CalendarLeft - Math.abs(distance) + "px";
+					}
+				} else { // 相对 向左
+					if(Math.abs(left) >= width*11 || left>=0) { // 当拖到最左边时无法移动
+						return false;
+					} else {
+						this.cLeft = CalendarLeft + Math.abs(distance) + "px";
+					}
+				}
+			},
+			calendarTouchEnd: function(event) { // 放开
+				let now = new Date().getTime();
+				let time = now - this.moveTime;
+				let width = window.innerWidth;
+				let Calendar = document.getElementById('calendar');
+				let distance = event.changedTouches[0].clientX - this.changedClientX;
+				// 速度
+				let speed = distance / time;
+				let CalendarLeft = this.CalendarLeft;
+				console.log(distance, time, width * 11, CalendarLeft);
+				if(distance < 0) { // 向右
+					if(Math.abs(CalendarLeft) == width * 11) { // 最右边
+						this.cLeft = CalendarLeft + "px";
+//						alert(11);
+						return;
+					}
+//					if(Math.abs(distance) >= width / 4) {
+//						
+//					}
+					if(time >= 80) { // 快速情况下
+						this.cLeft = CalendarLeft - width + "px";
+						return
+					} else { // 还原
+						this.cLeft = CalendarLeft + "px";
+						return
+					}
+					if(Math.abs(distance) >= width / 2) { //移动了大距离
+						this.cLeft = CalendarLeft - width + "px";
+						return
+					} else { // 还原
+						this.cLeft = CalendarLeft + "px";
+						return
+					}
+				} else { // 向左
+					if(CalendarLeft == 0) { // 最左边
+						this.cLeft = CalendarLeft + "px";
+						return;
+					}
+					if(Math.abs(distance) >= width / 3) {
+						if(time >= 100) { // 快速情况下
+							this.cLeft = CalendarLeft + width + "px";
+							return
+						} else { // 还原
+							this.cLeft = CalendarLeft + "px";
+							return
+						}
+					}
+					else if(Math.abs(distance) >= width / 2) { //移动了大距离
+						this.cLeft = CalendarLeft + width + "px";
+						return
+					} else { // 还原
+						this.cLeft = CalendarLeft + "px";
+						return
+					}
+				}
+			},
+		  	timeTool(date) { // 时间传唤工具
+	  			date = new Date(date);
+			  	let year = date.getFullYear();
+			  	let month = date.getMonth();
+			  	let day = date.getDate();
+			  	let over = year + "-" + (month+1 >= 10 ? month+1 : "0" + (month + 1)) + "-" + (day >= 10 ? day : "0" + day)
+			  	return over;
+		  	},
+		  	todayFunc() {
+		  		this.init();
+		  	},
+		  	init() {
+		  		let nowDate = this.timeTool(new Date());
+			  	let month = new Date().getMonth();
+			  	this.cLeft = month * -100 + "vw";
+			  	this.nowDate = nowDate;
+			  	this.calendar_active = nowDate;
+		  	}
+		  },
+		  mounted() {
+		  	this.disNowDate = this.timeTool(new Date());
+		  	this.init();
+		  	this.getDate();
+		  	console.log(this.dateList);
+		  }
+		});
+	</script>
+</html>
