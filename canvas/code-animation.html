@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+
+<script>
+    var canvas = document.getElementById("canvas");
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+    var ctx = canvas.getContext("2d");
+    
+    function clear() {
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, width, height);
+    }
+
+    clear();
+
+    // 开始
+    var timer;
+    function writeCode(list) {
+        if (!list.length) list[0] = "No code find, please input;"
+        var listLength = list.length;
+        var tempList = [], i = 0, j = 1; // i数组索引 j文本结尾
+        timer = setInterval(() => {
+            
+            var length = list[i].length;
+            tempList[i] = list[i].substring(0, j)
+            write(tempList);
+            j ++;
+            if (j === length + 1) {
+                i ++;
+                j = 1;
+                if (i === listLength) {
+                    clearInterval(timer);
+                }
+            }
+        }, 30)
+    }
+
+    function formatCode(text) {
+        text = text.replace(/\n/g, "<br/>");
+        var codeList = text.split("<br/>").filter(item => item); // 去空
+        writeCode(codeList);
+    }
+
+    function write(list) {
+        clear();
+        if (list.length > 20) {
+            list = list.slice(list.length - 20, list.length);
+        }
+        var length = list.length;
+        for (var i=0; i<length; i++) {
+            ctx.fillStyle = "#fff";
+            ctx.font="24px Arial";
+            ctx.fillText(list[i], width / 2 - 300, 200 + 30*i);
+        }
+    }
+    formatCode(document.documentElement.outerHTML);
+</script>
+</html>
