@@ -29,7 +29,7 @@
     
     // 场景参数
     let rainLevel = 5; // 1-5级降雨
-    let rainBasic = 500; // 基础降雨量，最终降雨量等于rainBasic*rainLevel
+    let rainBasic = 1000; // 基础降雨量，最终降雨量等于rainBasic*rainLevel
 
     /**
      * option: 
@@ -49,7 +49,7 @@
     }
     // 通过下坠加速度计算位移增量
     Rain.prototype.incrementComputed = function() {
-        return this.size * 0.8;
+        return this.size*2;
     }
     Rain.prototype.windComputed = function(wind, windLeval) {
         if (wind && windLeval) {
@@ -60,6 +60,10 @@
             }
         }
         return 0;
+    }
+    Rain.prototype.sizeComputed = function() {
+        // return 0.1 / this.size
+        return 0
     }
     
     /**
@@ -115,6 +119,7 @@
             let increment = rain.incrementComputed();
             rain.y+=increment;
             rain.x+=rain.windComputed(this.wind, this.windLeval);
+            rain.size+=rain.sizeComputed();
             if (rain.y > (height - Math.random()*100)) {
                 // 超出屏幕
                 removeList.push(i);
@@ -129,7 +134,7 @@
         for (let i=0; i<this.edList.length; i++) {
             let ripples = this.edList[i];
             ripples.draw();
-            ripples.size ++;
+            ripples.size += 0.5;
             if (ripples.size > 4) {
                 ripplesRemoveList.push(i)
             }
