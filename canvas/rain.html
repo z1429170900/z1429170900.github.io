@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+
+<script>
+    const canvas = document.getElementById("canvas");
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    const ctx = canvas.getContext("2d");
+
+    // 场景参数
+    let rainLevel = 1; // 1-5级降雨
+    let rainBasic = 500; // 基础降雨量，最终降雨量等于rainBasic*rainLevel
+
+    /**
+     * option: 
+    */
+    let rainId = 0;
+    function Rain(option) {
+        this.size = option.size; // 尺寸
+        this.x = option.x;
+        this.y = option.y;
+        this.id = rainId ++;
+    }
+
+    Rain.prototype.draw = function () {
+        ctx.strokeStyle = "#ccc";
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x, this.y + this.size);
+        ctx.stroke();
+    }
+    // 通过下坠加速度计算位移增量
+    Rain.prototype.incrementComputed = function() {
+        return this.size;
+    }
+    /**
+     * option: 
+    **/
+    function Scence(option) {
+        this.total = option.total;
+        this.interval = option.interval; // 每次生成的间隔
+        this.rainList = [];
+    }
+
+    Scence.prototype.init = function() {
+        for (let i=0; i<this.total; i++) {
+            this.initRain();
+        }
+    }
+
+    Scence.prototype.initRain = function() {
+        let rain = new Rain({
+            size: Math.random()*10,
+            x: Math.random()*width,
+            y: 0
+        })
+        this.rainList.push(rain);
+    }
+
+    Scence.prototype.dripRain = function() {
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, width, height);
+        let removeList = [];
+        for (let i=0; i<this.rainList.length; i++) {
+            let rain = this.rainList[i];
+            rain.draw();
+            // 计算加速度
+            let increment = rain.incrementComputed();
+            rain.y+=increment;
+            if (rain.y > height) {
+                // 超出屏幕
+                removeList.push(i);
+            }
+        }
+        this.rainList = this.rainList.filter((item, index) => {
+            return removeList.indexOf(index) === -1;
+        })
+        for (let i=0; i<removeList.length; i++) {
+            this.initRain();
+        }
+    }
+
+    // 开始绘画
+
+    const scence = new Scence({
+        total: rainLevel*rainBasic,
+        interval: 10
+    })
+
+    scence.init();
+
+    function animation() {
+        // render
+        scence.dripRain();
+        requestAnimationFrame(animation);
+    }
+
+    animation();
+</script>
+
+</html>
