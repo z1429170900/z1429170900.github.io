@@ -26,9 +26,9 @@
     canvas.height = height;
 
     const ctx = canvas.getContext("2d");
-
+    
     // 场景参数
-    let rainLevel = 1; // 1-5级降雨
+    let rainLevel = 5; // 1-5级降雨
     let rainBasic = 500; // 基础降雨量，最终降雨量等于rainBasic*rainLevel
 
     /**
@@ -41,7 +41,7 @@
     }
 
     Rain.prototype.draw = function () {
-        ctx.strokeStyle = "#ccc";
+        ctx.strokeStyle = "#fff";
         ctx.beginPath();
         ctx.moveTo(this.x, this.y);
         ctx.lineTo(this.x, this.y + this.size);
@@ -49,7 +49,7 @@
     }
     // 通过下坠加速度计算位移增量
     Rain.prototype.incrementComputed = function() {
-        return this.size;
+        return this.size * 0.8;
     }
     Rain.prototype.windComputed = function(wind, windLeval) {
         if (wind && windLeval) {
@@ -61,13 +61,30 @@
         }
         return 0;
     }
+    
+    /**
+     * option: 
+    **/
+    function Ripples(option) {
+        this.x = option.x;
+        this.y = option.y;
+        this.size = option.size;
+    }
+
+    Ripples.prototype.draw = function() {
+        ctx.strokeStyle = "#fff";
+        ctx.beginPath();
+        ctx.ellipse(this.x,this.y,this.size,this.size-1,0,0,Math.PI*2);
+        ctx.stroke();
+    }
+
     /**
      * option: 
     **/
     function Scence(option) {
         this.total = option.total;
-        this.interval = option.interval; // 每次生成的间隔
         this.rainList = [];
+        this.edList = [];
         this.wind = null; // 1 西南风 2 东南风
         this.windLeval = null; // 1-5级风
     }
@@ -80,8 +97,8 @@
 
     Scence.prototype.initRain = function() {
         let rain = new Rain({
-            size: Math.random()*10 + 1,
-            x: Math.random()*(width+width*0.4) - width*0.2,
+            size: Math.random()*10,
+            x: Math.random()*(width*4) - width,
             y: 0
         })
         this.rainList.push(rain);
@@ -91,7 +108,6 @@
         ctx.fillStyle = "#000";
         ctx.fillRect(0, 0, width, height);
         let removeList = [];
-        
         for (let i=0; i<this.rainList.length; i++) {
             let rain = this.rainList[i];
             rain.draw();
@@ -99,11 +115,28 @@
             let increment = rain.incrementComputed();
             rain.y+=increment;
             rain.x+=rain.windComputed(this.wind, this.windLeval);
-            if (rain.y > height) {
+            if (rain.y > (height - Math.random()*100)) {
                 // 超出屏幕
                 removeList.push(i);
+                this.edList.push(new Ripples({
+                    x: rain.x,
+                    y: rain.y + rain.size,
+                    size: 1
+                }))
             }
         }
+        let ripplesRemoveList = [];
+        for (let i=0; i<this.edList.length; i++) {
+            let ripples = this.edList[i];
+            ripples.draw();
+            ripples.size ++;
+            if (ripples.size > 4) {
+                ripplesRemoveList.push(i)
+            }
+        }
+        this.edList = this.edList.filter((item, index) => {
+            return ripplesRemoveList.indexOf(index) === -1;
+        })
         this.rainList = this.rainList.filter((item, index) => {
             return removeList.indexOf(index) === -1;
         })
@@ -115,8 +148,7 @@
     // 开始绘画
 
     const scenceSL = new Scence({
-        total: rainLevel*rainBasic,
-        interval: 10
+        total: rainLevel*rainBasic
     })
 
     scenceSL.init();
