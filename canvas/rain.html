@@ -34,12 +34,10 @@
     /**
      * option: 
     */
-    let rainId = 0;
     function Rain(option) {
         this.size = option.size; // 尺寸
         this.x = option.x;
         this.y = option.y;
-        this.id = rainId ++;
     }
 
     Rain.prototype.draw = function () {
@@ -53,6 +51,16 @@
     Rain.prototype.incrementComputed = function() {
         return this.size;
     }
+    Rain.prototype.windComputed = function(wind, windLeval) {
+        if (wind && windLeval) {
+            if (wind === 1) {
+                return -1 * windLeval
+            } else if (wind === 2) {
+                return 1 * windLeval * (this.y / height)
+            }
+        }
+        return 0;
+    }
     /**
      * option: 
     **/
@@ -60,6 +68,8 @@
         this.total = option.total;
         this.interval = option.interval; // 每次生成的间隔
         this.rainList = [];
+        this.wind = null; // 1 西南风 2 东南风
+        this.windLeval = null; // 1-5级风
     }
 
     Scence.prototype.init = function() {
@@ -70,8 +80,8 @@
 
     Scence.prototype.initRain = function() {
         let rain = new Rain({
-            size: Math.random()*10,
-            x: Math.random()*width,
+            size: Math.random()*10 + 1,
+            x: Math.random()*(width+width*0.4) - width*0.2,
             y: 0
         })
         this.rainList.push(rain);
@@ -81,12 +91,14 @@
         ctx.fillStyle = "#000";
         ctx.fillRect(0, 0, width, height);
         let removeList = [];
+        
         for (let i=0; i<this.rainList.length; i++) {
             let rain = this.rainList[i];
             rain.draw();
             // 计算加速度
             let increment = rain.incrementComputed();
             rain.y+=increment;
+            rain.x+=rain.windComputed(this.wind, this.windLeval);
             if (rain.y > height) {
                 // 超出屏幕
                 removeList.push(i);
@@ -102,20 +114,59 @@
 
     // 开始绘画
 
-    const scence = new Scence({
+    const scenceSL = new Scence({
         total: rainLevel*rainBasic,
         interval: 10
     })
 
-    scence.init();
+    scenceSL.init();
 
     function animation() {
         // render
-        scence.dripRain();
+        scenceSL.dripRain();
         requestAnimationFrame(animation);
     }
 
     animation();
+
+    let startTimer = null;
+    let endTimer = null;
+    canvas.addEventListener("touchstart", function(e) {
+        endTimer && clearInterval(endTimer);
+        let touches = e.touches[0];
+        if (touches.clientX > width/2) {
+            // 右半边
+            scenceSL.wind = 1;
+            scenceSL.windLeval = 1;
+        } else {
+            // 左半边
+            scenceSL.wind = 2;
+            scenceSL.windLeval = 1;
+        }
+        startTimer = setInterval(() => {
+            scenceSL.windLeval ++;
+            if (scenceSL.windLeval === 5) {
+                clearInterval(startTimer);
+            }
+        }, 300)
+    })
+    
+    canvas.addEventListener("touchend", function(e) {
+        startTimer && clearInterval(startTimer);
+        if (scenceSL.windLeval > 1) {
+            endTimer = setInterval(() => {
+                scenceSL.windLeval --;
+                if (scenceSL.windLeval === 1) {
+                    scenceSL.wind = undefined;
+                    scenceSL.windLeval = undefined;
+                    clearInterval(endTimer)
+                }
+            }, 300)
+        } else {
+            scenceSL.wind = undefined;
+            scenceSL.windLeval = undefined;
+        }
+    })
 </script>
 
 </html>
