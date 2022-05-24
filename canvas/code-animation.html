@@ -25,6 +25,519 @@
 </body>
 
 <script>
+    var keys70 = [
+        [
+            {
+                name: "ESC",
+                sizeW: 1,
+                sizeH: 1,
+                high: true,
+                top: "",
+                code: 27
+            },
+            {
+                name: "1",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "!",
+                code: 49
+            },
+            {
+                name: "2",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "@",
+                code: 50
+            },
+            {
+                name: "3",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "#",
+                code: 51
+            },
+            {
+                name: "4",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "$",
+                code: 52
+            },
+            {
+                name: "5",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "%",
+                code: 53
+            },
+            {
+                name: "6",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "^",
+                code: 54
+            },
+            {
+                name: "7",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "&",
+                code: 55
+            },
+            {
+                name: "8",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "*",
+                code: 56
+            },
+            {
+                name: "9",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "(",
+                code: 57
+            },
+            {
+                name: "0",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ")",
+                code: 48
+            },
+            {
+                name: "-",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "_"
+            },
+            {
+                name: "=",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "+"
+            },
+            {
+                name: "后退",
+                sizeW: 2,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: "Home",
+                sizeW: 1,
+                sizeH: 1,
+                high: true,
+                top: ""
+            }
+        ],
+        [
+            {
+                name: "`",
+                sizeW: 1,
+                sizeH: 1,
+                high: true,
+                top: "~"
+            },
+            {
+                name: "q",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "w",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "e",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "r",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "t",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "y",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "u",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "i",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "o",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "p",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "[",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "{"
+            },
+            {
+                name: "]",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "}"
+            },
+            {
+                name: "\\",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "|"
+            },
+            {
+                name: "Del",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "PgUp",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            }
+        ],
+        [
+            {
+                name: "Tab",
+                sizeW: 1.5,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: "a",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "s",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "d",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "f",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "g",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "h",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "j",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "k",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "l",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: ";",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ":"
+            },
+            {
+                name: "'",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "\""
+            },
+            {
+                name: "Enter",
+                sizeW: 2.5,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: "PgDn",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            }
+        ],
+        [
+            {
+                name: "Shift",
+                sizeW: 2,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: "z",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "x",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "c",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "v",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "b",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "n",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "m",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: ",",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "<"
+            },
+            {
+                name: ".",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ">"
+            },
+            {
+                name: "/",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: "?"
+            },
+            {
+                name: "Shift",
+                sizeW: 2,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: "↑",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "End",
+                sizeW: 1,
+                sizeH: 1,
+                high: false,
+                top: ""
+            }
+        ],
+        [
+            {
+                name: "Ctrl",
+                sizeW: 1,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: "Fn",
+                sizeW: 1,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: "win",
+                sizeW: 1,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: "Alt",
+                sizeW: 1,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: " ",
+                sizeW: 6,
+                sizeH: 1,
+                high: false,
+                top: ""
+            },
+            {
+                name: "AltGr",
+                sizeW: 1,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: "Copy",
+                sizeW: 1,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: "Ctrl",
+                sizeW: 1,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: "←",
+                sizeW: 1,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: "↓",
+                sizeW: 1,
+                sizeH: 1,
+                high: true,
+                top: ""
+            },
+            {
+                name: "→",
+                sizeW: 1,
+                sizeH: 1,
+                high: true,
+                top: ""
+            }
+        ],
+    ]
     var canvas = document.getElementById("canvas");
     var width = window.innerWidth;
     var height = window.innerHeight;
@@ -49,7 +562,7 @@
             
             var length = list[i].length;
             tempList[i] = list[i].substring(0, j)
-            write(tempList);
+            write(tempList, tempList[i][j - 1]);
             j ++;
             if (j === length + 1) {
                 i ++;
@@ -67,7 +580,7 @@
         writeCode(codeList);
     }
 
-    function write(list) {
+    function write(list, input) {
         clear();
         if (list.length > 20) {
             list = list.slice(list.length - 20, list.length);
@@ -76,9 +589,75 @@
         for (var i=0; i<length; i++) {
             ctx.fillStyle = "#fff";
             ctx.font="24px Arial";
-            ctx.fillText(list[i], width / 2 - 300, 200 + 30*i);
+            ctx.textAlign = "left";
+            ctx.textBaseline = "top";
+            ctx.fillText(list[i], width / 4, 20 + 30*i);
         }
+        drawKeyBoard(input);
     }
     formatCode(document.documentElement.outerHTML);
+
+    // 绘制键盘 highList高亮的列表
+    function drawKeyBoard(highText) {
+        let isShift = false;
+        for (let i=0; i<keys70.length; i++) {
+            let row = keys70[i];
+            for (let j=0; j<row.length;j++) {
+                if (highText === row[j].top) {
+                    isShift = true;
+                }
+            }
+        }
+        // 以上先判断是否是shift触发的字符
+        let width = 60;
+        let height = 55;
+        let margin = 4;
+        // size 16*50 m2 8 16*5 
+        ctx.fillStyle = "rgb(21,26,30)";
+        // margin 2  width 50 height 45
+        let mw = 16*width+margin*17;
+        let mh = height*5+margin*6;
+        let x = (window.innerWidth - mw) / 2;
+        let y = (window.innerHeight - mh) -20;
+        ctx.fillRect(x, y, mw, mh);
+        let left = margin + x;
+        let top = margin + y;
+        for (let i=0; i<keys70.length; i++) {
+            let row = keys70[i];
+            for (let j=0; j<row.length;j++) {
+                let w = width*row[j].sizeW + (row[j].sizeW - 1) * margin;
+                let h = height*row[j].sizeH + (row[j].sizeH - 1) * margin;
+                let color = row[j].high ? "rgb(63,65,64)" : "rgb(37,41,43)";
+                if (highText === row[j].name) {
+                    color = "rgb(100,100,100)"
+                } else if (highText === row[j].top) {
+                    color = "rgb(100,100,100)"
+                }
+                if (isShift && row[j].name === "Shift") {
+                    color = "rgb(100,100,100)"
+                }
+                drawKeyItem(row[j].name, w, h, left, top, row[j].top, color);
+                left += w + margin;
+            }
+            left = margin + x;
+            top += margin + height;
+        }
+    }
+    // 键帽
+    function drawKeyItem(text, width, height, x, y, topText, color) {
+        ctx.fillStyle = color;
+        ctx.fillRect(x, y, width, height);
+        if (text.length>1) {
+            ctx.font = "16px Arial";
+        } else {
+            ctx.font = "20px Arial";
+        }
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = "#fff";
+        ctx.fillText(text, x+width/2, y+height/2);
+        ctx.font = "14px Arial";
+        ctx.fillText(topText, x+width/4*3, y+height/4*1);
+    }
 </script>
 </html>
